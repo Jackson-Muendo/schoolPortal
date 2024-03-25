@@ -1,0 +1,22 @@
+<!-- header.component.html -->
+<header>
+    <div class="container">
+      <div class="logo">
+        <img src="assets/logo.png" alt="Logo">
+        <h1>My Website</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a routerLink="/">Dashboard</a></li>
+          <li><a routerLink="/about">About</a></li>
+          <li><a routerLink="/contact">Contact</a></li>
+          <li><a routerLink="/login">Login</a></li>
+          <li><a routerLink="/addstudents">Add student</a></li>
+        </ul>
+      </nav>
+      <div class="user-profile">
+        <button *If="isLoggedIn()" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </header>
+  
