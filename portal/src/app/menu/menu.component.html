@@ -6,9 +6,23 @@
   </div>
   
   <div class="menu-links" [class.open]="menuOpened">
-    <a routerLink="/dashboard" routerLinkActive="active-link" (click)="closeMenu()">Dashboard</a>
-    <a routerLink="/students" routerLinkActive="active-link" (click)="closeMenu()">Students</a>
-    <a routerLink="/settings" routerLinkActive="active-link" (click)="closeMenu()">Settings</a>
+    <nav>
+        <ul>
+          
+          
+          
+        </ul>
+      </nav>
+    <nav>
+       <ul> 
+         <li><a routerLink="/" (click)="closeMenu()">Dashboard</a></li>
+          <li><a routerLink="/menu" (click)="closeMenu()">About</a></li>
+          <li><a routerLink="/contact" (click)="closeMenu()">Contact</a></li>
+          <li><a routerLink="/login" (click)="closeMenu()">Login</a></li>
+          <li><a routerLink="/addstudents" (click)="closeMenu()">Add student</a></li>
+        
+       </ul>
+    </nav>
   </div>
   
   <div class="content">
