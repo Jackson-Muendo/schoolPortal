@@ -6,13 +6,15 @@
         <h1>My Website</h1>
       </div>
       <nav>
+        <tr>
         <ul>
-          <li><a routerLink="/">Dashboard</a></li>
-          <li><a routerLink="/about">About</a></li>
-          <li><a routerLink="/contact">Contact</a></li>
-          <li><a routerLink="/login">Login</a></li>
-          <li><a routerLink="/addstudents">Add student</a></li>
+          <td><li><a routerLink="/">Dashboard</a></li></td>
+          <td><li><a routerLink="/about">About</a></li></td>
+          <td><li><a routerLink="/contact">Contact</a></li></td>
+          <td><li><a routerLink="/login">Login</a></li></td>
+          <td><li><a routerLink="/addstudents">Add student</a></li></td>
         </ul>
+      </tr>
       </nav>
       <div class="user-profile">
         <button *If="isLoggedIn()" (click)="logout()">Logout</button>
