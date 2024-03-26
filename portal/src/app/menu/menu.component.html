@@ -1,0 +1,17 @@
+<div class="menu">
+    <button class="menu-icon" (click)="toggleMenu()">
+      ☰ <!-- Unicode character for the menu icon -->
+    </button>
+    
+  </div>
+  
+  <div class="menu-links" [class.open]="menuOpened">
+    <a routerLink="/dashboard" routerLinkActive="active-link" (click)="closeMenu()">Dashboard</a>
+    <a routerLink="/students" routerLinkActive="active-link" (click)="closeMenu()">Students</a>
+    <a routerLink="/settings" routerLinkActive="active-link" (click)="closeMenu()">Settings</a>
+  </div>
+  
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  
