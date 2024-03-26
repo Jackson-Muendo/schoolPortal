@@ -1,0 +1,28 @@
+<form id="studentForm">
+    <div id="studentsContainer">
+        <div class="student">
+            <table>
+                <thead>
+                    <tr>
+                        <th><label for="name">Name:</label></th>
+                        <th><label for="dob">Date of Birth:</label></th>
+                        <th><label for="level">Level:</label></th>
+                        <th><label for="parent">Parent Name:</label></th>
+                        <th><label for="contacts">Contacts:</label></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" id="name" name="name" required></td>
+                        <td><input type="date" id="dob" name="dob" required></td>
+                        <td><input type="text" id="level" name="level" required></td>
+                        <td><input type="text" id="parent" name="parent" required></td>
+                        <td><input type="number" id="contacts" name="contacts" required></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <button type="button" id="addStudent">Add Student</button>
+    <button type="button" id="exportExcel">Export Excel</button>
+</form>

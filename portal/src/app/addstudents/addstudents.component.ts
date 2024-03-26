@@ -1,37 +1,28 @@
 import { Component } from '@angular/core';
 import { StudentsService  } from '../services/students.service';
 import { Student } from '../models/student';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-addstudents',
   standalone: true,
-  imports: [FormsModule,RouterLink,],
+  imports: [FormsModule,RouterLink],
   templateUrl: './addstudents.component.html',
   styleUrl: './addstudents.component.css'
 })
 export class AddstudentsComponent {
-  student: Student = {
-    firstName: '',
-    lastName: '',
-    age: '',
-    grade: ''
-  };
+  
 
   constructor(private studentService: StudentsService) { }
 
-  addStudent(): void {
-    this.studentService.addStudent(this.student).subscribe(() => {
+  addStudent(form : NgForm): void {
+    this.studentService.addStudent(form.value.firstName,form.value.lastName,form.value.surName,form.value.dateofbirth,form.value.parentfullnames,form.value.contact,)
       console.log('Student added successfully!');
-      // Reset form fields after adding student
-      this.student = {
-        firstName: '',
-        lastName: '',
-        age: '',
-        grade: ''
-      };
-    });
+      alert('Student added successfully!')
+      console.log(form.value.firstName,form.value.dateofbirth)
+      
+      
   }
 }

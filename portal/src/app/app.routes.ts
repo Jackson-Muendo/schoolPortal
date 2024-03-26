@@ -4,6 +4,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AddstudentsComponent } from './addstudents/addstudents.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AddmarksComponent } from './addmarks/addmarks.component';
+import { ViewstudentsComponent } from './viewstudents/viewstudents.component';
 
 export const routes: Routes = [
     {path:'',component: DashboardComponent},
@@ -11,6 +13,8 @@ export const routes: Routes = [
     {path:'login',component: LoginComponent},
     {path:'footer',component: FooterComponent},
     {path:'addstudents',component: AddstudentsComponent},
+    {path:'addmarks',component: AddmarksComponent},
+    {path:'view-students',component: ViewstudentsComponent},
     
     
 ];

@@ -2,7 +2,7 @@ header {
     background-color: #333;
     color: #fff;
     padding: 10px 0;
-    overflow: scroll;
+    
     
     
   }
@@ -40,6 +40,9 @@ header {
     color: #fff;
     text-decoration: none;
   }
-  
+  img{
+    height:50px;
+    border-radius:50%;
+  }
   
   
