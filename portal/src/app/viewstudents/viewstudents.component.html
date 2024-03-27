@@ -1,20 +1,27 @@
 <div class="container">
-    <h2>Student List</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>First Name</th>
-          <th>Second Name</th>
-          <th>Surname</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let student of students">
-          <td>{{ student.firstname }}</td>
-          <td>{{ student.secondname}}</td>
-          <td>{{ student.surname }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <h2>View Students</h2>
+  <div>
+    <label for="classSelect">Select Class:</label>
+    <select id="classSelect" [(ngModel)]="selectedClass" (change)="onClassChange()">
+      <option *ngFor="let class of classes" [value]="class">{{ class }}</option>
+    </select>
   </div>
-  
+  <br>
+  <table *ngIf="students.length > 0" class="table">
+    <thead>
+      <tr>
+        <th>Student Name</th>
+        <th>Class</th>
+        <th>Roll Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{ student.name | lowercase}}</td>
+        <td>{{ student.studentclass }}</td>
+        <td>{{ student.rollNumber }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="students.length === 0">No students found for the selected class.</div>
+</div>

@@ -11,7 +11,15 @@ import { Student } from '../models/student';
   providedIn: 'root'
 })
 export class StudentsService {
-  students: any = []
+  
+  private students: any[] = [
+    { name: 'John Doe', studentclass: 'Class 1', rollNumber: '001' },
+    { name: 'Jane Smith', studentclass: 'Class 2', rollNumber: '002' },
+    { name: 'Alice Johnson', studentclass: 'Class 1', rollNumber: '003' },
+    { name: 'Bob Brown', studentclass: 'Class 2', rollNumber: '004' },
+    { name: 'Charlie Davis', studentclass: 'Class 3', rollNumber: '005' },
+    // Add more students as needed
+  ];
   private studentUpdated = new Subject<any>()
   private apiUrl = 'http://your-api-url.com/students'; // Replace with your backend API URL
 
@@ -21,9 +29,9 @@ export class StudentsService {
   }
    
   // Add a student
-  addStudent(firtsname:string,secondname:string,surname:string,dateofbirth:Date,
+  addStudent(name:string, studentclass:string,dateofbirth:Date,
     parentfullname:string,contact:string){
-    const student = {firstname:firtsname,secondname:secondname,surname:surname,
+    const student = {name:name,studentclass:studentclass,
       dateofbirth:dateofbirth,parentfullname:parentfullname,contact:contact}
       this.students.push(student)
       this.studentUpdated.next([...this.students])
@@ -32,6 +40,10 @@ export class StudentsService {
   // Get all students
   getStudents() {
    return [...this.students]
+  }
+
+  getStudentsByClass(selectedClass: string): any[] {
+    return this.students.filter(student => student.studentclass === selectedClass);
   }
 
   // Get student by ID

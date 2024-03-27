@@ -1,22 +1,25 @@
 <!-- add-student.component.html -->
 <div class="container">
     <h2>Add Student</h2>
-    <form (ngSubmit)="addStudent(form)" #form="ngForm">          
+    <form (ngSubmit)="addStudent(form)" #form="ngForm"> 
       <div class="form-group">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" ngModel="firstName" #firstName ngModel required>
-      </div>
+        <label for="Name">Name:</label>
+        <input type="text" id="Name" name="Name" ngModel="Name" #Name ngModel required>
+      </div>         
+      
       <div class="form-group">
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" ngModel="lastName" required>
-      </div>
-      <div class="form-group">
-        <label for="surName">Surname Name:</label>
-        <input type="text" id="surName" name="surName" ngModel="surName" required>
-      </div>
-      <div class="form-group">
-        <label for="parentsfullname">Parent Full Name:</label>
+        <label for="parentsfullname">Parent Name:</label>
         <input type="text" id="parentsfullname" name="parentsfullname" ngModel="parentsfullname" required>
+      </div>
+      <div class="form-group">
+        <label for="class">Class:</label>
+        <select ngModel="class" name="class" required>
+          <option value="Class 1">Class 1</option>
+          <option value="Class 2">Class 2</option>
+          <option value="Class 3">Class 3</option>
+          <option value="Class 4">Class 4</option>
+        </select>
+        
       </div>
       <div class="form-group">
         <label for="dob">Date of Birth:</label>
