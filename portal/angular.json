@@ -20,7 +20,7 @@
               "zone.js"
             ],
             "allowedCommonJsDependencies": [
-            "jspdf",
+            "jspdf-autotable",
             "core-js",
             "raf"],
             "tsConfig": "tsconfig.app.json",
