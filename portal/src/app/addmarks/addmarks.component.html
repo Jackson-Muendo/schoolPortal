@@ -1,28 +1,40 @@
-<form id="studentForm">
-    <div id="studentsContainer">
-        <div class="student">
-            <table>
-                <thead>
-                    <tr>
-                        <th><label for="name">Name:</label></th>
-                        <th><label for="dob">Date of Birth:</label></th>
-                        <th><label for="level">Level:</label></th>
-                        <th><label for="parent">Parent Name:</label></th>
-                        <th><label for="contacts">Contacts:</label></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><input type="text" id="name" name="name" required></td>
-                        <td><input type="date" id="dob" name="dob" required></td>
-                        <td><input type="text" id="level" name="level" required></td>
-                        <td><input type="text" id="parent" name="parent" required></td>
-                        <td><input type="number" id="contacts" name="contacts" required></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+<div class="container">
+    <h2>Add / View Marks</h2>
+    <div>
+      <label for="classSelect">Select Class:</label>
+      <select id="classSelect" [(ngModel)]="selectedClass" (change)="onClassChange()">
+        <option *ngFor="let class of classes" [value]="class">{{ class }}</option>
+      </select>
     </div>
-    <button type="button" id="addStudent">Add Student</button>
-    <button type="button" id="exportExcel">Export Excel</button>
-</form>
+    <div>
+      <label for="subjectSelect">Select Subject:</label>
+      <select id="subjectSelect" [(ngModel)]="selectedSubject" (change)="onSubjectChange()">
+        <option *ngFor="let subject of subjects" [value]="subject">{{ subject }}</option>
+      </select>
+    </div>
+    <br>
+    <div *ngIf="students.length > 0">
+    <h1>{{selectedClass}} {{selectedSubject}}</h1>
+      <table class="table">
+        
+        <thead>
+          <tr>
+            <th>Student Name</th>
+            <th>Roll Number</th>
+            <th>Marks</th>
+          </tr>
+        </thead>
+        <tbody>
+            
+          <tr *ngFor="let student of students">
+            <td>{{ student.name }}</td>
+            <td>{{ student.rollNumber }}</td>
+            <td><input type="number" [(ngModel)]="student.marks[selectedSubject]" (change)="onMarksChange(student)" placeholder="Enter marks"></td>
+          </tr>
+        </tbody>
+      </table>
+      <button (click)="addMarks()">Add Marks</button>
+    </div>
+    <div *ngIf="students.length === 0">No students found for the selected class and subject.</div>
+  </div>
+  

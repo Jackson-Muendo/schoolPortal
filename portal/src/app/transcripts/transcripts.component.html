@@ -1,0 +1,76 @@
+<div class="container">
+    <h2>Transcript</h2>
+    <div>
+      <label for="classSelect">Select Class:</label>
+      <select id="classSelect" [(ngModel)]="selectedClass" (change)="onClassChange()">
+        <option *ngFor="let class of classes" [value]="class">{{ class }}</option>
+      </select>
+    </div>
+    <div *ngIf="students.length > 0">
+      <h3>Students in {{ selectedClass }}</h3>
+      <table id="transcriptContent">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Roll Number</th>
+            <th>Mathematics</th>
+            <th>Science</th>
+            <th>English</th>
+            <th>Action</th> <!-- Added for selecting student -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of students">
+            <td>{{ student.name }}</td>
+            <td>{{ student.rollNumber }}</td>
+            <td>{{ student.marks.Mathematics }}</td>
+            <td>{{ student.marks.Science }}</td>
+            <td>{{ student.marks.English }}</td>
+            <td><button (click)="downloadStudentTranscript(student)">Download Transcript</button></td> <!-- Button for selecting student -->
+          </tr>
+        </tbody>
+      </table>
+      <button (click)="downloadPDF()">Download PDF</button>
+      <!--<button (click)="downloadWholeResults()">Download Whole Results</button>-->
+    </div>
+    <div *ngIf="students.length === 0 && selectedClass">
+      <p>No students found for {{ selectedClass }}.</p>
+    </div>
+  </div>
+  
+  <div *ngIf="selectedStudent">
+    <h3>Transcript for {{ selectedStudent.name }}</h3>
+    <div id="studentTranscriptContent">
+    <p>Name: {{ selectedStudent.name }}</p>
+    <p>Roll Number: {{ selectedStudent.rollNumber }}</p>
+    <p>Class: {{selectedStudent.studentclass}}</p>
+      <table class="transcript-table">
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>Marks</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Mathematics</td>
+                <td>{{ selectedStudent.marks.Mathematics }}</td>
+                <td>{{ calculateGrade(selectedStudent.marks.Mathematics) }}</td> 
+              </tr>
+              <tr>
+                <td>Science</td>
+                <td>{{ selectedStudent.marks.Science }}</td>
+                <td>{{ calculateGrade(selectedStudent.marks.Science) }}</td> 
+              </tr>
+              <tr>
+                <td>English</td>
+                <td>{{ selectedStudent.marks.English }}</td>
+                <td>{{ calculateGrade(selectedStudent.marks.English) }}</td> 
+              </tr>
+        </tbody>
+      </table>
+      
+    </div>
+  </div>
+  
