@@ -20,8 +20,8 @@
               "zone.js"
             ],
             "allowedCommonJsDependencies": [
-            "jspdf-autotable",
-            "core-js",
+            "jspdf","rgbcolor",
+            "core-js","html2canvas",
             "raf"],
             "tsConfig": "tsconfig.app.json",
             "assets": [
