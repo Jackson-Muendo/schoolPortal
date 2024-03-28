@@ -9,7 +9,6 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "strictNullChecks": false,
-    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "strictPropertyInitialization": false,
     "esModuleInterop": true,
