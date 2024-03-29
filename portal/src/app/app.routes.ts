@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddmarksComponent } from './addmarks/addmarks.component';
 import { ViewstudentsComponent } from './viewstudents/viewstudents.component';
 import { TranscriptsComponent } from './transcripts/transcripts.component';
+import { TeacherComponent } from './teacher/teacher.component';
 
 export const routes: Routes = [
     {path:'',component: DashboardComponent},
@@ -17,6 +18,7 @@ export const routes: Routes = [
     {path:'addmarks',component: AddmarksComponent},
     {path:'view-students',component: ViewstudentsComponent},
     {path:'get-Transcripts',component: TranscriptsComponent},
+    {path:'teachers',component: TeacherComponent},
     
     
 ];
