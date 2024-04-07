@@ -1,7 +1,8 @@
+<button type="submit" routerLink="/">Back</button>
 <div class="container">
     <h2>Transcript</h2>
     <div>
-      <label for="classSelect">Select Class:</label>
+      <label for="classSelect">Select Grade:</label>
       <select id="classSelect" [(ngModel)]="selectedClass" (change)="onClassChange()">
         <option *ngFor="let class of classes" [value]="class">{{ class }}</option>
       </select>
@@ -12,20 +13,33 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>Roll Number</th>
+            <th>Admission Number</th>
             <th>Mathematics</th>
             <th>Science</th>
             <th>English</th>
+            <th>Intergated Science</th>
+            <th>Religious Education</th>
+            <th>Social Studies</th>
+            <th>Pre-Technical Studies</th>
+            <th>Agriculture and Nutrition</th>
+            <th>Creative arts and sports</th>
             <th>Action</th> <!-- Added for selecting student -->
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let student of students">
             <td>{{ student.name }}</td>
-            <td>{{ student.rollNumber }}</td>
+            <td>{{ student.admission }}</td>
             <td>{{ student.marks.Mathematics }}</td>
             <td>{{ student.marks.Science }}</td>
             <td>{{ student.marks.English }}</td>
+            <td>{{ student.marks.Kiswahili }}</td>
+            <td>{{student.marks.Intergrated}}</td>
+            <td>{{student.marks.Religious}}</td>
+            <td>{{student.marks.Social}}</td>
+            <td>{{student.marks.PreTechnical}}</td>
+            <td>{{student.marks.Agriculture}}</td>
+            <td>{{student.marks.Creative}}</td>
             <td><button (click)="downloadStudentTranscript(student)">Download Transcript</button></td> <!-- Button for selecting student -->
           </tr>
         </tbody>
@@ -41,15 +55,22 @@
   <div *ngIf="selectedStudent">
     <h3>Transcript for {{ selectedStudent.name }}</h3>
     <div id="studentTranscriptContent">
+    <p>{{ selectedStudent.schoolname }} JSS</p>
     <p>Name: {{ selectedStudent.name }}</p>
-    <p>Roll Number: {{ selectedStudent.rollNumber }}</p>
+    <p>Admission Number: {{ selectedStudent.rollNumber }}</p>
     <p>Class: {{selectedStudent.studentclass}}</p>
-      <table class="transcript-table">
+    <p>NEMIS: {{selectedStudent.studentclass}}</p>
+    <div class="transcript-table">
+      <table >
         <thead>
             <tr>
-                <th>Subject</th>
+                <th>Learning Areas</th>
+                <!-- <th>Mid Term</th>
+                <th>End Term</th> 
+                <th>Total Score</th>-->
                 <th>Marks</th>
                 <th>Grade</th>
+                <th>Remarks</th>
             </tr>
         </thead>
         <tbody>
@@ -57,20 +78,99 @@
                 <td>Mathematics</td>
                 <td>{{ selectedStudent.marks.Mathematics }}</td>
                 <td>{{ calculateGrade(selectedStudent.marks.Mathematics) }}</td> 
+                <td>{{selectedStudent.remarks}}</td>
+                
               </tr>
               <tr>
                 
-                <td>Science</td>
-                <td>{{ selectedStudent.marks.Science }}</td>
-                <td>{{ calculateGrade(selectedStudent.marks.Science) }}</td> 
-              </tr>
-              <tr>
                 <td>English</td>
                 <td>{{ selectedStudent.marks.English }}</td>
                 <td>{{ calculateGrade(selectedStudent.marks.English) }}</td> 
+              
+                <td>{{selectedStudent.remarks}}</td>
+              </tr>
+              <tr>
+                <td>Kiswahili</td>
+                <td>{{ selectedStudent.marks.Kiswahili }}</td>
+                <td>{{ calculateGrade(selectedStudent.marks.Kiswahili) }}</td> 
+                
+                <td>{{selectedStudent.remarks}}</td>
+              </tr>
+              <tr>
+                <td>Intergrated Science</td>
+                <td>{{ selectedStudent.marks.Intergrated }}</td>
+                <td>{{ calculateGrade(selectedStudent.marks.Intergrated) }}</td>
+                <td>{{selectedStudent.remarks}}</td>
+                 
+              </tr>
+              <tr>
+                <td>Religious Education</td>
+                <td>{{ selectedStudent.marks.Religious }}</td>
+                <td>{{ calculateGrade(selectedStudent.marks.Religious) }}</td>
+                <td>{{selectedStudent.remarks}}</td>
+                 
+              </tr>
+              <tr>
+                <td>Social Studies</td>
+                <td>{{ selectedStudent.marks.Social }}</td>
+                <td>{{ calculateGrade(selectedStudent.marks.Social) }}</td> 
+                <td>{{selectedStudent.remarks}}</td>
+                
+              </tr>
+              <tr>
+                <td>Pre-Technical Studies</td>
+                <td>{{ selectedStudent.marks.PreTechnical }}</td>
+                <td>{{ calculateGrade(selectedStudent.marks.PreTechnical) }}</td> 
+                <td>{{selectedStudent.remarks}}</td>
+                
+              </tr>
+              <tr>
+                <td>Agriculture and Nutrition</td>
+                <td>{{ selectedStudent.marks.Agriculture }}</td>
+                <td>{{ calculateGrade(selectedStudent.marks.Agriculture) }}</td>
+                <td>{{selectedStudent.remarks}}</td>
+                 
+              </tr>
+              <tr>
+                <td>Creative arts and sports </td>
+                <td>{{ selectedStudent.marks.Creative}}</td>
+                <td>{{ calculateGrade(selectedStudent.marks.Creative) }}</td>
+                <td>{{selectedStudent.remarks}}</td>
+                 
               </tr>
         </tbody>
       </table>
+      <h3>Achievement in Core Compentencies</h3>
+      <table class="achievement">
+        
+        
+        <tr>
+          <td>Communication and collaboration</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Critical Thinking and collaboration</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Imagination and Creativity</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Digital Literacy</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Self-Efficiency</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Learning to Learn</td>
+          <td></td>
+        </tr>
+      
+      </table>
+    </div>
       
     </div>
   </div>

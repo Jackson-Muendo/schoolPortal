@@ -4,16 +4,17 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import * as jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-transcripts',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule,FormsModule,RouterLink],
   templateUrl: './transcripts.component.html',
   styleUrl: './transcripts.component.css'
 })
 export class TranscriptsComponent {
-  classes: string[] = ['Class 1', 'Class 2', 'Class 3'];
+  classes: string[] = ['Grade 1', 'Grade 2', 'Grade 3','Grade 4','Grade 5','Grade 6','Grade 7','Grade 8'];
   selectedClass: string;
   students: any[] = [];
   selectedStudent: any;

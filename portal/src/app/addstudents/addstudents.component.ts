@@ -18,7 +18,7 @@ export class AddstudentsComponent {
   constructor(private studentService: StudentsService) { }
 
   addStudent(form : NgForm): void {
-    this.studentService.addStudent(form.value.Name,form.value.class,form.value.dateofbirth,form.value.parentfullnames,form.value.contact,)
+    this.studentService.addStudent(form.value.Name,form.value.nemis,form.value.admission,form.value.class,form.value.dateofbirth,form.value.parentfullnames,form.value.contact,)
       console.log('Student added successfully!');
       alert('Student added successfully!')
       console.log(form.value.firstName,form.value.dateofbirth)

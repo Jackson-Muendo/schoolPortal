@@ -1,3 +1,4 @@
+<button type="submit" routerLink="/">Back</button>
 <div class="container">
     <h2>Add / View Marks</h2>
     <div>
@@ -13,14 +14,14 @@
       </select>
     </div>
     <br>
-    <div *ngIf="students.length > 0">
+    <div *ngIf="students?.length > 0">
     <h1>{{selectedClass}} {{selectedSubject}}</h1>
       <table class="table">
         
         <thead>
           <tr>
             <th>Student Name</th>
-            <th>Roll Number</th>
+            <th>Admission Number</th>
             <th>Marks</th>
           </tr>
         </thead>
@@ -28,13 +29,13 @@
             
           <tr *ngFor="let student of students">
             <td>{{ student.name }}</td>
-            <td>{{ student.rollNumber }}</td>
+            <td>{{ student.admission }}</td>
             <td><input type="number" [(ngModel)]="student.marks[selectedSubject]" (change)="onMarksChange(student)" placeholder="Enter marks"></td>
           </tr>
         </tbody>
       </table>
       <button (click)="addMarks()">Add Marks</button>
     </div>
-    <div *ngIf="students.length === 0">No students found for the selected class and subject.</div>
+    <div *ngIf="students?.length === 0">No students found for the selected class and subject.</div>
   </div>
   
