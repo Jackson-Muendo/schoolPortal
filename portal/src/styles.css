@@ -5,8 +5,8 @@
   /* Media query for screens smaller than 768px (e.g., smartphones) */
   @media (max-width: 767px) {
     body {
-      font-size: 12px;
-      line-height: 1.5;
+      font-size: 14px;
+      /*line-height: 1.5;
     
       /* Adjust other styles for smaller screens */
     }
@@ -23,7 +23,7 @@
       background-color: #f4f4f4;
       border-radius: 2px;
       padding: 5px;
-      
+      min-height: 200px;
       margin: auto;
       width: 80px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
