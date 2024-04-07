@@ -38,7 +38,7 @@ export class StudentsService {
     parentfullname:string,contact:string){
     const student = {name:name,nemis:nemis,admission:admission,studentclass:studentclass,
       dateofbirth:dateofbirth,parentfullname:parentfullname,contact:contact}
-      this.http.post<{mesage:'saved',student:any}>('http://localhost:3000/api/addstudent',student)
+      this.http.post<{mesage:'saved',student:any}>('https://schoolportal-8yue.onrender.com/api/addstudent',student)
       .subscribe((data)=>{
         this.students.push(data.student)
         this.studentUpdated.next([...this.students])
