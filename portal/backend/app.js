@@ -6,8 +6,9 @@ const app = express();
 const studentschema = require('./models/studentschema')
 app.use(bodyparser.json())
 app.use(cors());
+//pCv72tSM3t3EWYFz
 //mongoose.connect('mongodb+srv://jack:OLVuKqM91Eiio0Wy@cluster0.7ufhcmr.mongodb.net/schoolportal?retryWrites=true&w=majority&appName=Cluster0')
-mongoose.connect('mongodb+srv://jack:OLVuKqM91Eiio0Wy@cluster0.orq3iot.mongodb.net/studentportal?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://jackmwexh1225:pCv72tSM3t3EWYFz@cluster0.cke2djk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 .then(()=>{console.log('connected to the database')})
 .catch((error)=>{console.log(error)})
 
